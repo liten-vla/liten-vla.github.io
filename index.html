@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="description"
+        content="LITEN: Learning Affordances at Inference-Time for Vision-Language-Action Models">
+  <meta name="keywords" content="LITEN, VLA, VLM, Robotics, Vision-Language-Action">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>LITEN: Learning Affordances at Inference-Time for Vision-Language-Action Models</title>
+
+  <!-- Global site tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+
+    function gtag() {
+      dataLayer.push(arguments);
+    }
+
+    gtag('js', new Date());
+
+    gtag('config', 'G-PYVRSFMDRL');
+  </script>
+
+  <link href="https://fonts.googleapis.com/css?family=Google+Sans|Noto+Sans|Castoro"
+        rel="stylesheet">
+
+  <link rel="stylesheet" href="./static/css/bulma.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-carousel.min.css">
+  <link rel="stylesheet" href="./static/css/bulma-slider.min.css">
+  <link rel="stylesheet" href="./static/css/fontawesome.all.min.css">
+  <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+  <link rel="stylesheet" href="./static/css/index.css">
+  <link rel="icon" href="./static/images/favicon.svg">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script defer src="./static/js/fontawesome.all.min.js"></script>
+  <script src="./static/js/bulma-carousel.min.js"></script>
+  <script src="./static/js/bulma-slider.min.js"></script>
+  <script src="./static/js/index.js"></script>
+</head>
+<body>
+
+<nav class="navbar" role="navigation" aria-label="main navigation">
+  <div class="navbar-brand">
+    <a role="button" class="navbar-burger" aria-label="menu" aria-expanded="false">
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+      <span aria-hidden="true"></span>
+    </a>
+  </div>
+  <div class="navbar-menu">
+    <div class="navbar-start" style="flex-grow: 1; justify-content: center;">
+    </div>
+  </div>
+</nav>
+
+
+<section class="hero">
+  <div class="hero-body">
+    <div class="container is-max-desktop">
+      <div class="columns is-centered">
+        <div class="column has-text-centered">
+          <h1 class="title is-1 publication-title">LITEN: Learning Affordances at Inference-Time for Vision-Language-Action Models</h1>
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">
+              Ameesh Shah,</span>
+            <span class="author-block">
+              William Chen,</span>
+            <span class="author-block">
+              Adwait Godbole,</span>
+            <span class="author-block">
+              Federico Mora,</span>
+            <span class="author-block">
+              Sanjit A. Seshia,</span>
+            <span class="author-block">
+              Sergey Levine</span>
+          </div>
+
+          <div class="is-size-5 publication-authors">
+            <span class="author-block">University of California, Berkeley</span>
+          </div>
+
+          <div class="column has-text-centered">
+            <div class="publication-links">
+              <!-- Video Link. -->
+              <span class="link-block">
+                <a href="https://youtu.be/VDNkMBAuZiU"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-youtube"></i>
+                  </span>
+                  <span>Video</span>
+                </a>
+              </span>
+              <span class="link-block">
+                <a href="#"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="ai ai-arxiv"></i>
+                  </span>
+                  <span>arXiv</span>
+                </a>
+              </span>
+              <!-- Code Link. -->
+              <span class="link-block">
+                <a href="https://github.com/ameesh-shah/liten-vla/tree/main"
+                   class="external-link button is-normal is-rounded is-dark">
+                  <span class="icon">
+                      <i class="fab fa-github"></i>
+                  </span>
+                  <span>Code</span>
+                  </a>
+              </span>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- For the teaser video -->
+<section class="hero teaser">
+  <div class="container is-max-desktop">
+    <div class="hero-body">
+      <div class="video-container">
+        <video id="teaser" data-custom-controls muted loop playsinline height="100%">
+          <source src="./static/videos/liten_web_teaser_video.mp4" type="video/mp4">
+        </video>
+        <div class="video-controls">
+          <button class="play-pause-btn"><i class="fas fa-play"></i></button>
+          <div class="progress-bar">
+            <div class="progress-filled"></div>
+          </div>
+          <span class="time-display">0:00 / 0:00</span>
+        </div>
+      </div>
+      <h2 class="subtitle has-text-centered">
+        <span class="dnerf">LITEN</span> uses an off-the-shelf Vision-Language Model (VLM) as a planner for a Vision-Language-Action model (VLA) to solve long-horizon robotic tasks. LITEN learns the affordances of the physical world by processing and storing past experiences <em>in-context</em>, which allows the VLM to learn from its mistakes in order to generate better plans for the VLA.
+      </h2>
+    </div>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container is-max-desktop">
+    <!-- Abstract. -->
+    <div class="columns is-centered has-text-centered">
+      <div class="column is-three-fifths">
+        <h2 class="title is-3">Abstract</h2>
+        <div class="content has-text-justified">
+          <p>
+            Solving complex real-world control tasks often takes multiple tries: if we fail at first, we reflect on what went wrong, and change our strategy accordingly to avoid making the same mistake. In robotics, Vision-Language-Action models (VLAs) offer a promising path towards solving complex control tasks, but lack the ability to contextually and dynamically readjust behavior when they fail to accomplish a task. In this work, we introduce Learning from Inference-Time Execution (LITEN), which connects a VLA low-level policy to a high-level VLM that conditions on past experiences by including them in-context, allowing it to learn the affordances and capabilities of the low-level VLA. Our approach iterates between a reasoning phase that generates and executes plans for the low-level VLA, and an assessment phase that reflects on the resulting execution and draws useful conclusions to be included in future reasoning contexts. Unlike similar approaches to self-refinement in non-robotics domains, LITEN must reflect on unstructured real-world robot trajectories (e.g., raw videos), which requires structured guiderails during assessment. Our experimental results demonstrate LITEN is able to effectively learn from past experience to generate plans that use high-affordance instructions to accomplish long-horizon tasks.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ Abstract. -->
+
+    <!-- LITEN Overview. -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Learning from Inference-Time Execution (LITEN)</h2>
+        <div class="content has-text-justified">
+          <p>
+            VLAs hold great promise for solving open-world robotics tasks, but are still quite limited when it comes to solving complex, long-horizon tasks. Two key limitations to current VLAs are that (1) they struggle to understand and perform multi-step instructions, and (2) they are "single-shot" and won't adjust its behavior or learn from previous attempts. In our work, we present <em>Learning from Inference-Time Execution (LITEN)</em>, which addresses these limitations by treating the VLA as a low-level controller and coupling it with a high-level VLM, which can act as a "planner" and break down a complex task into a sequence of simpler instructions for the VLA to accomplish step-by-step. More importantly, however, LITEN provides a novel means of including past experiences in-context for the VLM, so it can learn from successes and failures it made in the past to better inform future plans for the VLA.
+          </p>
+        </div>
+        <img src="./static/images/liten_fig1.png" alt="LITEN Overview" style="width: 100%;">
+        <div class="content has-text-justified">
+          <p>
+            This illustration shows an example of how LITEN works. At first, the VLM is asked to generate a plan for the VLA, but doesn't know the VLAs capabilities, and has a limited understanding of the dynamics of the physical environment it will be acting in. As such, the instructions that the VLM initially prescribes for the VLM are incorrectly executed, which leads to a failure on the overall task. LITEN takes the trajectories of this failed attempt, and employs a VLM-as-a-judge to distill meaningful information from its failure. LITEN includes these takeaways in-context for future attempts, and is eventually able to generate a successful plan for the overall task.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ LITEN Overview. -->
+
+    <!-- LITEN Procedure. -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">The LITEN Procedure</h2>
+        <div style="text-align: center;">
+          <img src="./static/images/liten_method.png" alt="LITEN Procedure" style="width: 80%;">
+        </div>
+        <div class="content has-text-justified">
+          <p>
+            The LITEN procedure alternates between two phases: <em>reasoning</em> and <em>assessment</em>. In the reasoning phase, LITEN has a VLM generate a plan for the VLA based on the overall task and past experiences. In the assessment phase, LITEN collects the previous attempt (as video recordings) and asks a VLM judge to determine whether each subtask in the plan failed or succeeded, what the robot did instead in the case of failure, and what factors of the environment or the VLA could have led to a failed execution.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ LITEN Procedure. -->
+
+    <!-- VLM Judge Assessments. -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Example VLM Judge Assessments</h2>
+        <img src="./static/images/liten_examples.png" alt="VLM Judge Assessments" style="width: 100%;">
+        <div class="content has-text-justified">
+          <p>
+            Here, we provide a few condensed examples of the VLM judge's assessments of subtasks that were executed by our VLA. We provide more information in our prompts to help the VLM judge generate useful feedback. The VLM judge produces more verbose output than what we illustrate above. Full examples are available in our codebase, and more condensed examples are provided down below.
+          </p>
+        </div>
+      </div>
+    </div>
+    <!--/ VLM Judge Assessments. -->
+
+    <!-- Results. -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Results</h2>
+          <div class="content has-text-justified">
+          <p>
+            We evaluate LITEN in three complex, long-horizon tabletop manipulation tasks, using the <a href="https://droid-dataset.github.io/droid/">DROID</a> hardware setup. We use the π0.5-DROID VLA, which is available and <a href=https://github.com/Physical-Intelligence/openpi>open-source</a>. We present videos showing LITEN's first attempt at solving the task, followed by a successful attempt that occurred after some number of iterations.
+          </p>
+        </div>
+        <!-- Example Videos -->
+        <div class="columns is-centered">
+          <div class="column">
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/exp1vid.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-centered">Task 1: Stacking three objects atop one another</p>
+          </div>
+          <div class="column">
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/exp2vid.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-centered">Task 2: Emptying two of the bowls on the table by moving objects between bowls</p>
+          </div>
+          <div class="column">
+            <video autoplay controls muted loop playsinline height="100%">
+              <source src="./static/videos/exp3vid.mp4" type="video/mp4">
+            </video>
+            <p class="has-text-centered">Task 3: Moving objects onto other objects so that only three objects are in contact with the table</p>
+          </div>
+        </div>
+
+        <!-- Main Results Figure -->
+        <div style="margin-top: 30px;">
+          <img src="./static/images/liten_results.png" alt="Main Results" style="width: 100%;">
+          <p class="has-text-centered">Our results show that LITEN learns to solve our experimental over successive attempts, outperforming baseline approaches to VLM self-refinement that are not tailored to robot learning.</p>
+        </div>
+
+        <!-- Ablation Results Figure -->
+        <div style="margin-top: 30px;">
+          <img src="./static/images/liten_ablation.png" alt="Ablation Results" style="width: 100%;">
+          <p class="has-text-centered">We also perform an ablation study on LITEN where we take out specific components of the assessment phase, such as asking the VLM judge to speculate about why the VLA-controlled robot may have failed to accomplish a subtask. Somewhat unsurprisingly, we found that it's important to structure the assessment phase in a way that clearly identifies possible causes of failure and means for improvement for future use by the VLM.</p>
+        </div>
+      </div>
+    </div>
+    <!--/ Results. -->
+
+    <!-- Illustrated Attempt Sequences. -->
+    <div class="columns is-centered">
+      <div class="column is-four-fifths">
+        <h2 class="title is-3">Illustrated Attempt Sequences from LITEN</h2>
+        <p class="has-text-centered" style="margin-bottom: 20px;">
+          We provide a few more condensed illustrative examples, showing how LITEN learns over multiple attempts to eventually solve tasks. Here's an example for the "Move off Table" task, the "Empty Bowls" task, and the "Stacking" task, respectively:
+        </p>
+        <div style="margin-top: 30px;">
+          <img src="./static/images/liten_app_1.png" alt="Attempt Sequence 1" style="width: 100%; margin-bottom: 40px;">
+          <img src="./static/images/liten_app_2.png" alt="Attempt Sequence 2" style="width: 100%; margin-bottom: 40px;">
+          <img src="./static/images/liten_app_3.png" alt="Attempt Sequence 3" style="width: 70%;">
+        </div>
+      </div>
+    </div>
+    <!--/ Illustrated Attempt Sequences. -->
+
+  </div>
+</section>
+
+
+<section class="section" id="BibTeX">
+  <div class="container is-max-desktop content">
+    <h2 class="title">BibTeX</h2>
+    <pre><code>@article{shah2025liten,
+  author    = {Shah, Ameesh and Chen, William and Godbole, Adwait and Mora, Federico and Seshia, Sanjit A. and Levine, Sergey},
+  title     = {Learning Affordances at Inference-Time for Vision-Language-Action Models},
+  journal   = {arXiv preprint},
+  year      = {2025},
+}</code></pre>
+  </div>
+</section>
+
+
+<footer class="footer">
+  <div class="container">
+    <div class="columns is-centered">
+      <div class="column is-8">
+        <div class="content has-text-centered">
+          <p>
+            Website borrowed from the <a href="https://nerfies.github.io/">Nerfies</a> source template.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

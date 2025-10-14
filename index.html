@@ -162,7 +162,7 @@
     <!--/ Abstract. -->
 
     <!-- LITEN Overview. -->
-    <div class="columns is-centered">
+    <div class="columns is-centered" style="margin-top: 2.0rem;">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Learning from Inference-Time Execution (LITEN)</h2>
         <div class="content has-text-justified">
@@ -260,13 +260,23 @@
     <div class="columns is-centered">
       <div class="column is-four-fifths">
         <h2 class="title is-3">Illustrated Attempt Sequences from LITEN</h2>
-        <p class="has-text-centered" style="margin-bottom: 20px;">
-          We provide a few more condensed illustrative examples, showing how LITEN learns over multiple attempts to eventually solve tasks. Here's an example for the "Move off Table" task, the "Empty Bowls" task, and the "Stacking" task, respectively:
+        <p style="margin-bottom: 20px;">
+          We provide a few more condensed illustrative examples, showing how LITEN learns over multiple attempts to eventually solve tasks:
         </p>
         <div style="margin-top: 30px;">
+          <h3 class="title is-4">Move off Table</h3>
+          <p style="margin-bottom: 15px;">Here, LITEN learns to place objects on top of each other by learning which objects in the scene will properly balance on others.</p>
           <img src="./static/images/liten_app_1.png" alt="Attempt Sequence 1" style="width: 100%; margin-bottom: 40px;">
+          
+          <h3 class="title is-4">Empty Bowls</h3>
+          <p style="margin-bottom: 15px;">In this task, LITEN empties bowls by learning which bowls contain graspable objects (either due to depth or size), and which bowl the VLA is predilected towards targeting.</p>
           <img src="./static/images/liten_app_2.png" alt="Attempt Sequence 2" style="width: 100%; margin-bottom: 40px;">
-          <img src="./static/images/liten_app_3.png" alt="Attempt Sequence 3" style="width: 70%;">
+          
+          <h3 class="title is-4">Stacking</h3>
+          <p style="margin-bottom: 15px;">Here, LITEN must create a stack of three objects by learning both which objects can be more easily stacked (such as smaller objects atop large, flat ones), and which objects the VLA is biased towards.</p>
+          <div style="text-align: center;">
+            <img src="./static/images/liten_app_3.png" alt="Attempt Sequence 3" style="width: 70%;">
+          </div>
         </div>
       </div>
     </div>

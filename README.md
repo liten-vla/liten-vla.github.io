@@ -1,4 +1,4 @@
-# Nerfies
+# Learning from Inference Time Execution (LITEN)
 
 This is the repository that contains source code for the LITEN website, adapted from the [Nerfies website](https://nerfies.github.io).
 
